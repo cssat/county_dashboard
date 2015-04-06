@@ -1,0 +1,465 @@
+#main-content{
+  width:1087px;
+}
+
+#main-content #block-title {
+/*  background:url('../images/blank-page-block-title-bg.png') left top no-repeat;*/
+  color:#fff;
+  font-family:Arvo,serif;
+  font-weight:normal;
+  text-transform:uppercase;
+  font-size: 20px;
+  line-height: 1.2em;
+  background:  #778071;
+  border: 2px solid  #778071;
+  position: relative;
+  padding: 12px 30px;
+  margin: -20px 0 0 -10px;
+}
+
+#main-content #block-title:after {
+   content: "";
+   position: absolute;
+   display: block;
+   border-style: solid;
+   border-color: #98A094 transparent transparent transparent;
+   left: 0;
+   border-width: 12px 0 0 12px;
+   bottom: -.7em;
+   left: -.15em;
+}
+
+#main-content #page-title {
+  display:none;
+  margin-left:3px;
+}
+
+#main-content .blank-page-row{
+  position:relative;
+  margin-bottom:15px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+#main-content .region-blank-page {
+  float:left;
+  /*overflow:hidden;*/
+  width:1087px; 
+  margin:10px 0 0 0px;
+}
+ 
+#sidebar-second {
+  float:right;
+  margin-right:12px;
+}
+
+#sidebar-second .region-sidebar-second{
+  overflow:hidden;
+  height:120px;
+}
+
+#main-content .region-blank-page .block { /* display all the blocks as width as the whole page*/
+   width:1087px;
+   height: auto;
+}
+
+#main-content .region-blank-page .block{
+  /*background:lightsteelblue;*/
+  display:inline-block;
+}
+
+#footer {
+  width:1087px;
+}
+
+.blank_page_title{
+    font-size: 2em;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    font-family:Arvo,serif;
+    font-weight:normal;
+    text-transform:uppercase;
+}
+
+    #svg_context{
+         overflow:hidden;     
+     margin-left: 5px;       
+    }
+    
+    #svg_population{
+         overflow:hidden;         
+    }
+    
+    #svg_trend{
+         overflow:hidden;  
+    }
+    
+    #radios{
+       float:right; 
+       margin-right:40px; 
+    }
+    
+  .county_dashboard{
+    border: none;
+  }
+  
+    .county_dashboard table, td, tr{
+        border: 1px solid white;
+        border-collapse:collapse;
+        padding:0px;
+    }
+    
+    .county_dashboard table p{
+        margin: 0;
+    }
+  
+    #chart {
+    }
+    
+    #t_context{
+    }
+    
+    #t_population{
+    }
+    
+    #t_trend{
+        padding-left:7px;
+    }
+    
+    #radios{
+    float: right;
+    width: 280px;
+  }
+    
+    #radios div {
+        float: right;
+        margin-left: 5px;
+        border: 2px solid; 
+        width:80px;
+        text-align:center;
+        cursor: pointer
+    }
+    
+    .wa_geo_map {
+        fill: rgb(113, 164, 197);
+        stroke: white;
+    }
+    
+    .wa_geo_map:hover {
+        fill: rgb(223, 243, 246);
+    }
+    
+    .wa_geo_map_region {
+        fill: rgb(113, 164, 197);
+        stroke: white;
+    }
+    
+    .wa_geo_map_region:hover {
+        fill: rgb(223, 243, 246);
+    }
+    
+    .trend {
+        cursor: pointer;
+    }
+    
+    .trend_line {
+        stroke: #555;
+        stroke-width: 2;
+        opacity: 0.7;
+        fill:none;
+    }
+    
+    .sparkline_title{
+       font-size:12px; 
+       font-weight: bold;
+       fill:#555;
+    }
+    
+    .sparkline_current{
+       font-size:30px; 
+       fill:#A2B69A;
+    }
+    
+    .sparkline_first{
+       font-size:11px; 
+       fill:#555;
+
+    }
+    
+    .trend_end_point{
+        fill:#A2B69A;
+    }
+    
+    .sparkline_axis path,
+    .sparkline_axis line {
+        fill: none;
+        stroke: #666;
+        stroke-width:2;
+        shape-rendering: crispEdges;
+    }
+    
+    .sparkline_axis path {
+        display: none;
+    }
+    
+    .sparkline_axis text {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    .population_axis path,
+    .population_axis line {
+        fill: none;
+        stroke: #666;
+        stroke-width:2;
+        shape-rendering: crispEdges;
+    } 
+   
+    .text_axis {
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        fill: #555;       
+    }
+    
+    .text_title {
+        font-family: sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        fill: #555;       
+    }
+    
+    .text_statis {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: normal;
+        fill: #555;       
+    }
+    
+    .circle_population {
+       fill:#A2B69A;
+    }
+    
+    .population_rect {
+        cursor: pointer;
+    }
+    
+    .text_statis {
+       fill:#A2B69A;
+    }
+  
+   #wa_map {
+        cursor: pointer;
+   }
+   
+   #sub_description {
+    
+   }
+   
+   .measure_desc text {
+        font-size: 10px;
+   }
+   
+   #sub_description_title {
+    margin-left: 55px;    
+    font-family: "Arvo", serif;
+    font-size: 20px;
+   }
+   
+   #sub_description_measure {
+        font-size: 15px;
+        font-weight: bold;
+   }
+   
+  .d3-tip {
+      display: block;
+    width: 150px;
+      padding: 7px;
+      background: #555;
+      color: #fff;
+      border-radius: 2px;
+    } 
+  
+  .d3-tip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size:10px; 
+  }
+    
+    .d3-tip span{
+       margin-top: 15px;
+    }
+    
+       /* d3 tip */
+     /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: #555;
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+
+
+    /* Style northward tooltips differently of the tooltip*/ 
+    .d3-tip.n:after {
+      margin: -2px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
+    
+    .d3-tip-county {
+      display: block;
+      padding: 7px;
+      background: #555;
+      color: #fff;
+      border-radius: 2px;
+    } 
+  
+  .d3-tip-county {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size:18px; 
+  }
+    
+    .d3-tip-county span{
+       margin-top: 15px;
+    }
+    
+         /* d3 tip */
+     /* Creates a small triangle extender for the tooltip */
+    .d3-tip-county:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: #555;
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+
+
+    /* Style northward tooltips differently of the tooltip*/ 
+    .d3-tip-county.n:after {
+      margin: -2px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
+
+    div.tooltip {
+     position: absolute;
+     text-align: center;
+     width: 150px;
+     height: 25px;
+     padding: 2px;
+     padding-top: 12px;
+     font-size: 1em;
+     background: #444444;
+     color: #fff;
+     font-family: "Open Sans", sans-serif;
+     pointer-events: none;
+    }
+
+.poc-county-dashboard h2 text#sub_description_title {
+  font-size: 20px;
+  font-family: "Arvo", serif;
+}
+    
+ /* end: County Dashboard */
+
+ /* Begin spaghetti plots */
+
+ /*****************************
+GENERAL STYLES
+*****************************/
+
+a:focus, a:hover {
+  color: #5b8067;
+}
+
+#main-content .block .spaghetti h2 {
+  font-family: "Arvo", serif;
+  margin-bottom: .5em;
+  color: #5B8067;
+  font-size: 2.5em;
+}
+
+/******************************
+Styles for lines visualization
+******************************/
+
+.spaghetti .description {
+  margin-left: 20px;
+  font-size: 13px;
+  line-height: 1.5em;
+}
+.spaghetti #filters, .spaghetti #care-filters {
+    margin-bottom: 20px;
+}
+
+#vis, #care-vis {
+    min-height: 550px;
+}
+
+.spaghetti path {
+    stroke: rgba(0, 0, 0, .1);
+    stroke-width: 2.0;
+    fill: none;
+   /* pointer-events: all; */
+   /* cursor: pointer;*/
+}
+.spaghetti path.current, .spaghetti path.highlight.current {
+    stroke: #000;
+    stroke-width: 2.0;
+}
+
+.spaghetti path[state="Washington"] {
+    stroke: #000;
+}
+
+.FW.highlight {
+  stroke: #c0392b;
+}
+.SW.highlight {
+    stroke: #d35400;
+}
+.ME.highlight {
+    stroke: #f39c12;
+}
+.SE.highlight {
+    stroke: #27ae60;
+}
+.MT.highlight {
+    stroke: #17a88c;
+}
+.GL.highlight {
+    stroke: #2980b9;
+}
+.GP.highlight {
+    stroke: #8e44ad;
+}
+.NE.highlight {
+  stroke: #34495e;
+}
+.highlight {
+    stroke-width: 2px;
+}
+line {
+    stroke: black;
+}
+text {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+}
+.axis {
+    stroke-width: 0.8;
+    stroke: #000;
+}
+.xTicks, .yTicks {
+    stroke-width: 0.6;
+    stroke: #000;
+}
