@@ -15,7 +15,7 @@ into the new Data Portal.
 Provides application styling.
 
 * JavaScript
-** `d3_VERSION_NUMBER.js` (3rd party)
+--* `d3_VERSION_NUMBER.js` (3rd party)
 The core D3 file obtained from (website name)[link].
 ** `d3_tip_VERSION_NUMBER.js` (3rd party)
 A D3 file that supports adding tooltips to d3.js visualizations. Obtained from
