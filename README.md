@@ -59,14 +59,15 @@ into the new Data Portal.
 		and descriptions for fast facts and population brackets).
 
 ## Data Generation
-The data generation process for this application is currently being updated as
-follows.
+**The data generation process for this application is currently being updated as
+follows.**
 
 Data is extracted from POC databases and prepared for the application using R
 and the `pocr` package.
 
-** TENTATIVE DESCRIPTION OF UPDATING PROCESS FOLLOWS **
+### POC Databases and Schemas Used
 
+### Data Generation Process
 The `pocr` package [is available](https://github.com/pocdata/pocr/tree/master/R)
 for inspection, though viewing it requires access to the POC pocdata account
 on GitHub.
