@@ -26,37 +26,37 @@ into the new Data Portal.
 	
 	* `population.js` **(merge target)**
 	
-	Supports creation of population brackets at bottom of the dashboard.
+		Supports creation of population brackets at bottom of the dashboard.
 	
 	* `sparkline.js` **(merge target)**
 	
-	Supports creation of sparkline charts on the side of the dashboard.
+		Supports creation of sparkline charts on the side of the dashboard.
 	
 	* `wa_geo_map.js` **(function/data separation needed)**
 	
-	Supports creation of county map. Also currently provides the map GeoJSON 
-	data.
+		Supports creation of county map. Also currently provides the map GeoJSON 
+		data.
 	
 	* `wa_geo_map_region.js` **(function/data separation needed)**
 	
-	Supports creation of region map. Also currently provides the map GeoJSON 
-	data.
+		Supports creation of region map. Also currently provides the map GeoJSON 
+		data.
 
 ## Data
 * JavaScript
 	* `data_county.js` **(conversion needed)**
 	
-	Several arrays of data for counties stored as variables, as well as the 
-	sparkline domain (needs to be updated when the data is updated).
+		Several arrays of data for counties stored as variables, as well as the 
+		sparkline domain (needs to be updated when the data is updated).
 	
 	* `data_region.js` **(conversion needed)**
 	
-	Same as above but for regions and minus the sparkline domain.
+		Same as above but for regions and minus the sparkline domain.
 	
 	* `dict.js` **(conversion needed)**
 	
-	Defines assorted application features ("small counties" array, titles and 
-	descriptions for fast facts and population brackets).
+		Defines assorted application features ("small counties" array, titles
+		and descriptions for fast facts and population brackets).
 
 ## Data Generation
 The data generation process for this application is currently being updated as
@@ -64,6 +64,8 @@ follows.
 
 Data is extracted from POC databases and prepared for the application using R
 and the `pocr` package.
+
+** TENTATIVE DESCRIPTION OF UPDATING PROCESS FOLLOWS **
 
 The `pocr` package [is available](https://github.com/pocdata/pocr/tree/master/R)
 for inspection, though viewing it requires access to the POC pocdata account
@@ -76,15 +78,27 @@ membership not required).
 devtools::install_github("pocdata/pocr")
 ```
 
-To update the data, install `pocr` and use the `update_r_apps` function.
+To update the data, install `pocr` and use the `update_r_apps` function. 
+
+The basic version of the `update_r_apps` function will require pocdata access, 
+as it generates new data for the specified apps and pushes that data to the
+relevant repo(s). 
 
 ```
-# to update all applications supported by pocr
+# to update all applications supported by pocr (will request credentials for
+# a GitHub account with pocdata access)
 pocr::update_r_apps()
 
-# to update a specific application or set of applications
+# to update a specific application or set of applications (same credential
+# request
 pocr::update_r_apps("app_repo_name")
 ```
 
-This will generate new data for the specified apps and push that data to the
-relevant repo(s). 
+Alternatively, you can create a local copy of the requested data by setting
+`local_copy = TRUE`.
+
+```
+# creates a local copy of the app data - does not update GitHub and so no
+# credentials needed
+pocr::update_r_apps("app_repo_name", local_copy = TRUE)
+```
