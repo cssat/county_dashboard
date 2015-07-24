@@ -65,6 +65,9 @@ follows.**
 Data is extracted from POC databases and prepared for the application using R
 and the `pocr` package.
 
+### Update Schedule
+Quarterly updates for CA data. Yearly updates for contextual data.
+
 ### POC Databases and Schemas Used
 
 ### Data Generation Process
