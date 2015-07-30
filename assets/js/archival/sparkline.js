@@ -1,16 +1,4 @@
-function show(x){
-    if((typeof x) == "string"){
-        document.write("<pre>" + '"' + x + '"' + "</pre>");
-    }else if((typeof x) == "object"){
-        document.write("<pre>" + JSON.stringify(x, null, " ")+ "</pre>");
-    }else{
-        document.write("<pre>" + x + "</pre>");
-    }
-}
-
-(function(){
-    
-      parseDate = d3.time.format("%Y-%m-%d").parse;
+parseDate = d3.time.format("%Y-%m-%d").parse;
         
       d3.sparkline = function(){
         var  sparkline_w = 411,
@@ -234,4 +222,3 @@ function show(x){
                  });
         }
         
-    })();

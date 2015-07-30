@@ -1,17 +1,4 @@
- function show(x){
-    if((typeof x) == "string"){
-        document.write("<pre>" + '"' + x + '"' + "</pre>");
-    }else if((typeof x) == "object"){
-        document.write("<pre>" + JSON.stringify(x, null, " ")+ "</pre>");
-    }else{
-        document.write("<pre>" + x + "</pre>");
-    }
-}
-
- 
-    (function(){
-        
-      d3.population = function(){
+d3.population = function(){
         var  population_w = 133,
              population_h = 80,
              padding = 10,
@@ -141,5 +128,4 @@
             function populationStatistic(d) {
                 return d.statistic;
             }
-        
-    })();
+       

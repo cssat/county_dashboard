@@ -15,9 +15,10 @@ into the new Data Portal.
 	Provides application styling.
 
 * JavaScript
-	* `d3_VERSION_NUMBER.js` (3rd party)
+	* `d3_VERSION_NUMBER.min.js` (3rd party)
 	
-		The core D3 file obtained from (website name)[link].
+		The minimized core D3 file obtained from 
+		(the D3 website)[http://d3js.org/].
 	
 	* `d3_tip_VERSION_NUMBER.js` (3rd party)
 	
