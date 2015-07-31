@@ -1,4 +1,4 @@
-// map body layout
+// map body layout                          // BW: here to my next comment is all app layout
 var context_w = 714;
 var context_h = 420;
 var map_w = context_w * 0.4379;
@@ -36,30 +36,29 @@ var sparkline_w = 340;
 var sparkline_h = 90;
 
 // change them once get the real description file
-// BW: ???
-var fast_fact_desc = fast_fact_desc;
+var fast_fact_desc = fast_fact_desc;        // BW: ??? not sure what these assignments accomplish or what the "change them" comment means"
 var population_desc = population_desc;
 
 // scope: state, county, region
-var scope = "county";
+var scope = "county";                       // BW: app defaults
 
 // store the place selected
-var current_status = "Washington";
+var current_status = "Washington";          // BW: app defaults? maybe added in case other states become options?
 
 // default setting for user
-var default_county = "King";
+var default_county = "King";                // BW: app defaults
 var default_region = "region_2_south";
 
 //index in the data
 var current_pointer;
 
-var color_main = "#3B6E8F";
+var color_main = "#3B6E8F";                 // BW: app layout/colors
 var color_highlight = "#A3DCE6";
-var color_map_highlight = "#A3DCE6";
+var color_map_highlight = "#A3DCE6";        // BW: everything to here has been static variable declaration/assignment
 
 // color for each level
-var color_l_1 = d3.hsl(color_main).brighter(1.5);
-var color_l_2 = color_main;
+var color_l_1 = d3.hsl(color_main).brighter(1.5);   // BW: app layout colors but uses d3 to vary from assigned baselines... not sure if this can be moved to CSS
+var color_l_2 = color_main;                         //     also seems like a good candidate for refactoring (hard coded levels v. reading levels from data)
 var color_l_3 = d3.hsl(color_main).darker(0.8);
 var color_l_4 = d3.hsl(color_main).darker(2);
 var color_l_5 = d3.hsl(color_main).darker(2.5);
@@ -67,7 +66,7 @@ var color_l_6 = d3.hsl(color_main).darker(3);
 var color_l_NaN = "#ccc";
 
 // color for each region
-var color_rigon_1 = d3.hsl(color_main).brighter(0.7);
+var color_rigon_1 = d3.hsl(color_main).brighter(0.7);   // BW: UNUSED DELETE
 var color_rigon_2 = d3.hsl(color_main).brighter(1.5);
 var color_rigon_3 = d3.hsl(color_main).brighter(1.2);
 var color_rigon_4 = color_main;
@@ -75,13 +74,13 @@ var color_rigon_5 = d3.hsl(color_main).darker(0.5);
 var color_rigon_6 = d3.hsl(color_main).darker(0.8);
 
 // Create container for tooltip
-var div = d3.select("body")
-    .append("div")
+var div = d3.select("body")                 // BW: should this be set here? or defined in the index and styled with CSS? manipulation only here...
+    .append("div")                          // CONTAINER CREATION SECTION (if just touched here, can move to CSS template)
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-var svg_map = d3.select("#t_context")
-    .append("svg")
+var svg_map = d3.select("#t_context")       // BW: this stil related to the tooltip? or are we creating the map now? it looks like we may now be 
+    .append("svg")                          //     initializing the key features here: map, fast facts, and sparklines
     .attr("width", context_w)
     .attr("height", context_h)
     .attr("id", "svg_context")
@@ -116,9 +115,9 @@ var svg_trend = d3.select("#t_trend")
     .append("svg")
     .attr("id", "svg_trend");
 
-//DATA IN CONTEXT
+//DATA IN CONTEXT               // BW: ?? what does this mean?
 
-//map for county
+//map for county                // BW: why is there different settings for counties v. regions? why not draw on the same map and vary with the data?
 var svg = d3.select("#wa_map").call(wa_geo_map);
 
 d3.select("#wa_geo_map")
@@ -166,7 +165,7 @@ d3.select("#wa_geo_map_region")
 d3.select("#radios")
 .selectAll("div")
 .attr("checked", "unchecked")
-.style("border-color", d3.hsl(color_main).brighter(1.2));
+.style("border-color", d3.hsl(color_main).brighter(1.2));  // style section!!
 
 //sub_description
 // temporary solution
@@ -270,7 +269,7 @@ m_6.append("text")
 .attr("x", 15);
 
 //initialize current pointer
-get_current_pointer(default_county, "county");
+get_current_pointer(default_county, "county");          // INITIALIZE
 
 //initialize data in context
 d3.select("#radio_county")
