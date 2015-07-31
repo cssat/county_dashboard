@@ -1,4 +1,11 @@
-// map body layout                          // BW: here to my next comment is all app layout
+/* GLOBAL VARIABLE DECLARATION AND ASSIGNMENT */
+// base colors for the map and scale - these get manipulated with d3 functions
+// to produce lighter/darker shades when needed
+var color_main = "#3B6E8F";
+var color_highlight = "#A3DCE6";
+var color_map_highlight = "#A3DCE6";
+
+// map body layout                          
 var context_w = 714;
 var context_h = 420;
 var map_w = context_w * 0.4379;
@@ -35,26 +42,13 @@ var height_t = 90 - margin_t.top - margin_t.bottom;
 var sparkline_w = 340;
 var sparkline_h = 90;
 
-// change them once get the real description file
-var fast_fact_desc = fast_fact_desc;        // BW: ??? not sure what these assignments accomplish or what the "change them" comment means"
-var population_desc = population_desc;
-
-// scope: state, county, region
-var scope = "county";                       // BW: app defaults
-
-// store the place selected
-var current_status = "Washington";          // BW: app defaults? maybe added in case other states become options?
-
-// default setting for user
-var default_county = "King";                // BW: app defaults
+// defaults for what the user sees when they arrive at the county and region
+// sections of the tool
+var default_county = "King";
 var default_region = "region_2_south";
 
 //index in the data
 var current_pointer;
-
-var color_main = "#3B6E8F";                 // BW: app layout/colors
-var color_highlight = "#A3DCE6";
-var color_map_highlight = "#A3DCE6";        // BW: everything to here has been static variable declaration/assignment
 
 // color for each level
 var color_l_1 = d3.hsl(color_main).brighter(1.5);   // BW: app layout colors but uses d3 to vary from assigned baselines... not sure if this can be moved to CSS

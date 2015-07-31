@@ -17,7 +17,7 @@ POC does not currently educate wombats.
 ## Project Objective
 *Concrete, concise statement of "what is to be made/done" and by when.*
 
-Build a dashboard - WombStat - that conveys key wombat welfare statistics and 
+Build a dashboard - WombatStat - that conveys key wombat welfare statistics and 
 is integrated into the POC data site.
 
 Target for completion is August 1, 2019
@@ -27,11 +27,11 @@ Target for completion is August 1, 2019
 this is where you state how completing the project objective will impact that
 business need.*
 
-WombStat should be a resource where internet literate wombats can get basic
+WombatStat should be a resource where internet literate wombats can get basic
 wombat welfare information. It will both be a resource for educating wombats
 and - since it will be part of the POC site - it will expand POC's internet 
-footprint so that interested wombats are likely to find POC (and WombStat) when 
-searching the web.
+footprint so that interested wombats are likely to find POC (and WombatStat) 
+when searching the web.
 
 ## Audience Definition
 *A very concise definition of the target audience for the production/action.
