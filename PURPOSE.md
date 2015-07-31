@@ -40,6 +40,23 @@ insure your selection and definition are in line with the team vision.*
 
 This is a tool targeted towards new sections of the General Public.
 
+## Key Tasks Product Will Support for Target Audience(s)
+*Only really useful when the project is product focused. In this case, you need 
+to specify the most import 1-5 tasks the product will support. The product
+should be designed around these tasks and product testing should test the
+target audience ability to complete these tasks. Do not try to design a single
+product for more than 5 tasks - more tasks than this suggests you either
+need multiple products or you need to develop your product in phases.*
+
+Wombats should be able to:
+* Learn about the wombat welfare process - where it begins and keys stages
+participants proceed through.
+* Get a rough sense of how many wombats are involved at different stages
+of the wombat welfare process.
+* Determine how many wombats are currently in out-of-hole care.
+* Determine common outcomes for out-of-hole care.
+* Compare out-of-hole placement and outcomes by wombat tribe.
+
 ## Deliverables
 *List of the concrete components that satisfy the objective.*
 

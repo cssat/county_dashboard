@@ -1,9 +1,19 @@
 /* GLOBAL VARIABLE DECLARATION AND ASSIGNMENT */
-// base colors for the map and scale - these get manipulated with d3 functions
-// to produce lighter/darker shades when needed
+// base colors for the map and map scale - these get manipulated with d3 
+// functions to produce lighter/darker shades when needed
 var color_main = "#3B6E8F";
 var color_highlight = "#A3DCE6";
 var color_map_highlight = "#A3DCE6";
+
+// the extended color palette made from the base colors for the map and mape 
+// scale
+var color_l_1 = d3.hsl(color_main).brighter(1.5);   
+var color_l_2 = color_main;                     
+var color_l_3 = d3.hsl(color_main).darker(0.8);
+var color_l_4 = d3.hsl(color_main).darker(2);
+var color_l_5 = d3.hsl(color_main).darker(2.5);
+var color_l_6 = d3.hsl(color_main).darker(3);
+var color_l_NaN = "#ccc";
 
 // map body layout                          
 var context_w = 714;
@@ -47,32 +57,7 @@ var sparkline_h = 90;
 var default_county = "King";
 var default_region = "region_2_south";
 
-//index in the data
-var current_pointer;
-
-// color for each level
-var color_l_1 = d3.hsl(color_main).brighter(1.5);   // BW: app layout colors but uses d3 to vary from assigned baselines... not sure if this can be moved to CSS
-var color_l_2 = color_main;                         //     also seems like a good candidate for refactoring (hard coded levels v. reading levels from data)
-var color_l_3 = d3.hsl(color_main).darker(0.8);
-var color_l_4 = d3.hsl(color_main).darker(2);
-var color_l_5 = d3.hsl(color_main).darker(2.5);
-var color_l_6 = d3.hsl(color_main).darker(3);
-var color_l_NaN = "#ccc";
-
-// color for each region
-var color_rigon_1 = d3.hsl(color_main).brighter(0.7);   // BW: UNUSED DELETE
-var color_rigon_2 = d3.hsl(color_main).brighter(1.5);
-var color_rigon_3 = d3.hsl(color_main).brighter(1.2);
-var color_rigon_4 = color_main;
-var color_rigon_5 = d3.hsl(color_main).darker(0.5);
-var color_rigon_6 = d3.hsl(color_main).darker(0.8);
-
-// Create container for tooltip
-var div = d3.select("body")                 // BW: should this be set here? or defined in the index and styled with CSS? manipulation only here...
-    .append("div")                          // CONTAINER CREATION SECTION (if just touched here, can move to CSS template)
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
+/* INITIALIZING KEY CONTAINERS AND FEATURES (MAP, SPARKLINES, FAST FACTS) */
 var svg_map = d3.select("#t_context")       // BW: this stil related to the tooltip? or are we creating the map now? it looks like we may now be 
     .append("svg")                          //     initializing the key features here: map, fast facts, and sparklines
     .attr("width", context_w)
@@ -108,6 +93,12 @@ var svg_population = d3.select("#t_population")
 var svg_trend = d3.select("#t_trend")
     .append("svg")
     .attr("id", "svg_trend");
+    
+// Create container for tooltip
+var div = d3.select("body")                 // BW: should this be set here? or defined in the index and styled with CSS? manipulation only here...
+    .append("div")                          // CONTAINER CREATION SECTION (if just touched here, can move to CSS template)
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 //DATA IN CONTEXT               // BW: ?? what does this mean?
 
