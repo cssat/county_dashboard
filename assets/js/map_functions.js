@@ -35,8 +35,12 @@ function wa_geo_map(g) {
     })
     .attr("class", "wa_geo_map")
     .on("mouseover", function (d) {
-        d3.select(this).transition().duration(300).style("opacity", 1);
-        div.transition().duration(300)
+        d3.select(this)
+        .transition()
+        .duration(300)
+        .style("opacity", 1);
+        div.transition()
+        .duration(300)
         .style("opacity", 1)
         div.text(d.county)
         .style("left", (d3.event.pageX - 30) + "px")
@@ -44,23 +48,27 @@ function wa_geo_map(g) {
     })
     .on("mouseout", function () {
         d3.select(this)
-        .transition().duration(300)
+        .transition()
+        .duration(300)
         .style("opacity", 1);
-        div.transition().duration(300)
+        div.transition()
+        .duration(300)
         .style("opacity", 0);
     });
 
     for (var i = 0, c_len = counties.length; i < c_len; i++) {
         for (var j = 0, p_len = county_path.length; j < p_len; j++) {
             if (counties[i]["id"] == county_path[j]["county"]) {
-                d3.select("#" + counties[i]["id"]).append("path")
+                d3.select("#" + counties[i]["id"])
+                .append("path")
                 .attr("class", "wa_geo_map")
                 .attr("d", county_path[j]["path"]);
             }
         }
     }
 
-    d3.select("#wa_geo_map").selectAll("path")
+    d3.select("#wa_geo_map")
+    .selectAll("path")
     .style("stroke", "white")
     .style("stroke-width", "50");
 
@@ -98,8 +106,12 @@ function wa_geo_map_region(g) {
     })
     .attr("class", "wa_geo_map_region")
     .on("mouseover", function (d) {
-        d3.select(this).transition().duration(300).style("opacity", 1);
-        div.transition().duration(300)
+        d3.select(this)
+        .transition()
+        .duration(300)
+        .style("opacity", 1);
+        div.transition()
+        .duration(300)
         .style("opacity", 1)
         div.text(d.region_name)
         .style("left", (d3.event.pageX - 30) + "px")
@@ -107,9 +119,11 @@ function wa_geo_map_region(g) {
     })
     .on("mouseout", function () {
         d3.select(this)
-        .transition().duration(300)
+        .transition()
+        .duration(300)
         .style("opacity", 1);
-        div.transition().duration(300)
+        div.transition()
+        .duration(300)
         .style("opacity", 0);
     });
 
@@ -125,7 +139,8 @@ function wa_geo_map_region(g) {
         }
     }
 
-    d3.select("#wa_geo_map_region").selectAll("path")
+    d3.select("#wa_geo_map_region")
+    .selectAll("path")
     .style("stroke", "black")
     .style("fill", "none");
 }

@@ -28,8 +28,12 @@ d3.sparkline = function () {
 
             g = d3.select(this);
 
-            var x = d3.time.scale().range([0, sparkline_w / 20 * 13]).domain(sparkline_domain),
-            y = d3.scale.linear().range([sparkline_h, 0]).domain([min, max]);
+            var x = d3.time.scale()
+            .range([0, sparkline_w / 20 * 13])
+            .domain(sparkline_domain),
+            y = d3.scale.linear()
+            .range([sparkline_h, 0])
+            .domain([min, max]);
 
             var trend = g.append("g")
                 .attr("class", "trend")
@@ -104,14 +108,29 @@ d3.sparkline = function () {
                 .style("stroke", "white")
                 .attr("transform", "translate(0, " + (5 - 2) + ")");
 
-                d3.selectAll(".sparkline_first").transition().style("display", "block");
+                d3.selectAll(".sparkline_first")
+                .transition()
+                .style("display", "block");
 
-                d3.selectAll(".cover").transition().duration(1000).attr("x", sparkline_w / 20 * 14 + 1).attr("width", .01);
-                d3.selectAll(".cover").transition().delay(1000).style("display", "none");
+                d3.selectAll(".cover")
+                .transition()
+                .duration(1000)
+                .attr("x", sparkline_w / 20 * 14 + 1)
+                .attr("width", .01);
+                d3.selectAll(".cover")
+                .transition()
+                .delay(1000)
+                .style("display", "none");
 
-                d3.selectAll(".trend_end_point").transition().delay(1000).style("display", "block");
+                d3.selectAll(".trend_end_point")
+                .transition()
+                .delay(1000)
+                .style("display", "block");
 
-                d3.selectAll(".sparkline_current").transition().delay(1000).style("display", "block");
+                d3.selectAll(".sparkline_current")
+                .transition()
+                .delay(1000)
+                .style("display", "block");
 
             }
 
@@ -125,7 +144,9 @@ d3.sparkline = function () {
 
         //x-axis to key foster care trend
         /***************temporary************************/
-        var xScale = d3.time.scale().range([0, sparkline_w / 20 * 13]).domain(sparkline_domain);
+        var xScale = d3.time.scale()
+        .range([0, sparkline_w / 20 * 13])
+        .domain(sparkline_domain);
 
         var yearFormat = d3.time.format("%y");
         var format = function (d) {

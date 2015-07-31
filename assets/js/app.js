@@ -75,11 +75,13 @@ var color_rigon_5 = d3.hsl(color_main).darker(0.5);
 var color_rigon_6 = d3.hsl(color_main).darker(0.8);
 
 // Create container for tooltip
-var div = d3.select("body").append("div")
+var div = d3.select("body")
+    .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-var svg_map = d3.select("#t_context").append("svg")
+var svg_map = d3.select("#t_context")
+    .append("svg")
     .attr("width", context_w)
     .attr("height", context_h)
     .attr("id", "svg_context")
@@ -90,7 +92,10 @@ var svg_map = d3.select("#t_context").append("svg")
 var wa_map = svg_map.append("g")
     .attr("id", "wa_map");
 
-d3.select("#wa_map").data(map_loc).enter();
+d3.select("#wa_map")
+.data(map_loc)
+.enter();
+
 wa_map.attr("transform", function (d) {
     return "translate(" + d.x + "," + d.y + ")";
 });
@@ -103,10 +108,12 @@ var sub_description = svg_map.append("g")
     .attr("id", "sub_description")
     .attr("transform", "translate(0,0)");
 
-var svg_population = d3.select("#t_population").append("svg")
+var svg_population = d3.select("#t_population")
+    .append("svg")
     .attr("id", "svg_population");
 
-var svg_trend = d3.select("#t_trend").append("svg")
+var svg_trend = d3.select("#t_trend")
+    .append("svg")
     .attr("id", "svg_trend");
 
 //DATA IN CONTEXT
@@ -117,42 +124,54 @@ var svg = d3.select("#wa_map").call(wa_geo_map);
 d3.select("#wa_geo_map")
 .attr("height", map_h);
 
-d3.select("#wa_geo_map").selectAll("text").style("display", "none");
+d3.select("#wa_geo_map")
+.selectAll("text")
+.style("display", "none");
 
-d3.select("#wa_geo_map").selectAll("text")
+d3.select("#wa_geo_map")
+.selectAll("text")
 .style("font-size", "2005.942px");
 
-d3.select("#wa_geo_map").selectAll("g").attr("checked", "false");
+d3.select("#wa_geo_map")
+.selectAll("g")
+.attr("checked", "false");
 
 //map for region
 var svg = d3.select("#wa_map").call(wa_geo_map_region);
 
-d3.select("#wa_geo_map_region")
-// .attr("transform","translate(0, -49)")
-.attr("height", map_h * 1.33);
+d3.select("#wa_geo_map_region").attr("height", map_h * 1.33);
 
-d3.select("#wa_geo_map_region").selectAll("g")
+d3.select("#wa_geo_map_region")
+.selectAll("g")
 .attr("transform", "translate(0, -79)");
 
-d3.select("#wa_geo_map_region").selectAll("text").style("display", "none");
+d3.select("#wa_geo_map_region")
+.selectAll("text")
+.style("display", "none");
 
-d3.select("#wa_geo_map_region").selectAll("path")
+d3.select("#wa_geo_map_region")
+.selectAll("path")
 .style("stroke", "white")
 .style("display", "none");
 
-d3.select("#wa_geo_map_region").selectAll("text")
+d3.select("#wa_geo_map_region")
+.selectAll("text")
 .style("font-size", "28px");
 
-d3.select("#wa_geo_map_region").selectAll("g").attr("checked", "false");
+d3.select("#wa_geo_map_region")
+.selectAll("g")
+.attr("checked", "false");
 
 //style state/region/county buttons
-d3.select("#radios").selectAll("div")
+d3.select("#radios")
+.selectAll("div")
 .attr("checked", "unchecked")
 .style("border-color", d3.hsl(color_main).brighter(1.2));
 
 //sub_description
 // temporary solution
-d3.select("#t_context h2").append("text")
+d3.select("#t_context h2")
+.append("text")
 .attr("id", "sub_description_title")
 .text(
     // replace '-' with ' ', and make the first letter upercase
@@ -161,12 +180,14 @@ d3.select("#t_context h2").append("text")
         return s.toUpperCase();
     }));
 
-d3.select("#sub_description").append("text")
+d3.select("#sub_description")
+.append("text")
 .attr("id", "sub_description_measure")
 .attr("transform", "translate(-10,6)")
 .text("Percent Employment");
 
-var measure_desc = d3.select("#sub_description").append("g")
+var measure_desc = d3.select("#sub_description")
+    .append("g")
     .attr("transform", "translate(-10,20)")
     .attr("class", "measure_desc");
 
@@ -252,7 +273,9 @@ m_6.append("text")
 get_current_pointer(default_county, "county");
 
 //initialize data in context
-d3.select("#radio_county").attr('checked', 'checked').style("border-color", color_map_highlight);
+d3.select("#radio_county")
+.attr('checked', 'checked')
+.style("border-color", color_map_highlight);
 
 d3.select("#sub_description_title").text(default_county);
 
@@ -269,9 +292,11 @@ foster_care_trends(current_pointer, "county");
 tool_tip();
 
 //hide the ranking
-d3.select("#sub_description").style("display", "none");
+d3.select("#sub_description")
+.style("display", "none");
 
-d3.select("#radios").selectAll("div")
+d3.select("#radios")
+.selectAll("div")
 .on("mouseover", function () {
     d3.select(this).style("border-color", d3.hsl(color_map_highlight).brighter(0.5));
 })
@@ -289,7 +314,8 @@ d3.select("#radio_state").on("click", function () {
 
     scope = "state";
 
-    d3.select("#radios").selectAll("div")
+    d3.select("#radios")
+    .selectAll("div")
     .attr('checked', 'unchecked')
     .style("border-color", d3.hsl(color_main).brighter(1.2));
 
@@ -320,7 +346,8 @@ d3.select("#radio_region").on("click", function () {
 
     scope = "region";
 
-    d3.select("#radios").selectAll("div")
+    d3.select("#radios")
+    .selectAll("div")
     .attr('checked', 'unchecked')
     .style("border-color", d3.hsl(color_main).brighter(1.2));
 
@@ -353,7 +380,8 @@ d3.select("#radio_region").on("click", function () {
 d3.select("#radio_county").on("click", function () {
     scope = "county";
 
-    d3.select("#radios").selectAll("div")
+    d3.select("#radios")
+    .selectAll("div")
     .attr('checked', 'unchecked')
     .style("border-color", d3.hsl(color_main).brighter(1.2));
 
@@ -389,15 +417,24 @@ function map_state() {
         d3.select(".tooltip").style("display", "none");
     }
 
-    d3.select("#wa_geo_map").selectAll("path").style("display", "block");
+    d3.select("#wa_geo_map")
+    .selectAll("path")
+    .style("display", "block");
 
-    d3.select("#wa_geo_map_region").selectAll("path").style("display", "none");
-    d3.selectAll(".d3-tip-county").style("display", "none");
+    d3.select("#wa_geo_map_region")
+    .selectAll("path")
+    .style("display", "none");
+    d3.selectAll(".d3-tip-county")
+    .style("display", "none");
     d3.select("#sub_description_title").text("Washington");
 
-    d3.select("#wa_geo_map").selectAll("path").style("fill", "").style("stroke", d3.hsl(color_main).brighter(1.2));
+    d3.select("#wa_geo_map")
+    .selectAll("path")
+    .style("fill", "")
+    .style("stroke", d3.hsl(color_main).brighter(1.2));
     d3.select("#wa_geo_map_region").selectAll("path").style("display", "none");
-    d3.select("#wa_geo_map").selectAll("g")
+    d3.select("#wa_geo_map")
+    .selectAll("g")
     .on("mouseover", function () {
         d3.select("#wa_geo_map").selectAll("path").style("fill", d3.hsl(color_map_highlight).brighter(0.5)).style("stroke", d3.hsl(color_map_highlight).brighter(0.5));
     })
@@ -418,25 +455,39 @@ function map_county() {
     }
 
     // clear all settings
-    d3.select("#wa_geo_map").selectAll("path").style("display", "block").style("stroke", "white");
+    d3.select("#wa_geo_map")
+    .selectAll("path")
+    .style("display", "block")
+    .style("stroke", "white");
 
-    d3.select("#wa_geo_map_region").selectAll("path").style("display", "none");
+    d3.select("#wa_geo_map_region")
+    .selectAll("path")
+    .style("display", "none");
 
     d3.selectAll(".d3-tip-county").style("display", "block");
 
     // default setting
-    d3.select("#wa_geo_map").selectAll("path").style("fill", "");
-    d3.select("#" + default_county).selectAll("path").style("fill", color_map_highlight);
+    d3.select("#wa_geo_map")
+    .selectAll("path")
+    .style("fill", "");
+    d3.select("#" + default_county)
+    .selectAll("path")
+    .style("fill", color_map_highlight);
     d3.select("#sub_description_title").text(default_county);
 
     // mouse events
-    d3.select("#wa_geo_map").selectAll("g")
+    d3.select("#wa_geo_map")
+    .selectAll("g")
     // when click on a county, changes county color and change sub title
     .on("mouseover", function () {})
     .on("mouseout", function () {})
     .on("click", function () {
-        d3.select("#wa_geo_map").selectAll("path").style("fill", "");
-        d3.select(this).selectAll("path").style("fill", color_map_highlight);
+        d3.select("#wa_geo_map")
+        .selectAll("path")
+        .style("fill", "");
+        d3.select(this)
+        .selectAll("path")
+        .style("fill", color_map_highlight);
         d3.select("#sub_description").style("display", "none");
         var county_id = d3.select(this).attr("id");
         current_status = d3.select(this).attr("id");
@@ -447,7 +498,9 @@ function map_county() {
             });
         if (isSmallCounty) {
             small_counties.forEach(function (d) {
-                d3.select("#" + d).selectAll("path").style("fill", color_map_highlight);
+                d3.select("#" + d)
+                .selectAll("path")
+                .style("fill", color_map_highlight);
             })
             d3.select("#sub_description_title").text("Small Counties");
 
@@ -477,16 +530,21 @@ function map_region() {
     }
 
     // clear all settings
-    d3.select("#wa_geo_map").selectAll("path").style("display", "none");
+    d3.select("#wa_geo_map")
+    .selectAll("path")
+    .style("display", "none");
 
-    d3.select("#wa_geo_map_region").selectAll("path")
+    d3.select("#wa_geo_map_region")
+    .selectAll("path")
     .style("display", "block")
     .style("fill", "");
 
     d3.selectAll(".d3-tip-county").style("display", "block");
 
     // default setting
-    d3.selectAll("." + default_region).selectAll("path").style("fill", color_map_highlight);
+    d3.selectAll("." + default_region)
+    .selectAll("path")
+    .style("fill", color_map_highlight);
 
     d3.select("#sub_description_title").text(
         // replace '-' with ' ', and make the first letter upercase
@@ -496,11 +554,16 @@ function map_region() {
         }));
 
     // mouse events
-    d3.select("#wa_geo_map_region").selectAll("g")
+    d3.select("#wa_geo_map_region")
+    .selectAll("g")
     // when click on a region, changes region color and change sub title
     .on("click", function () {
-        d3.select("#wa_geo_map_region").selectAll("path").style("fill", "");
-        d3.select(this).selectAll("path").style("fill", color_map_highlight);
+        d3.select("#wa_geo_map_region")
+        .selectAll("path")
+        .style("fill", "");
+        d3.select(this)
+        .selectAll("path")
+        .style("fill", color_map_highlight);
         d3.select("#sub_description").style("display", "none");
         var region_name = d3.select(this).attr("name");
         d3.select("#sub_description_title").text(region_name);
@@ -535,7 +598,8 @@ function population_fast_fact(current_pointer, scope) {
     .attr("width", (width_p + margin_p.left + margin_p.right) * 5)
     .attr("height", height_p + margin_p.top + margin_p.bottom)
     .selectAll("g")
-    .data(data[current_pointer]["population_fast_fact"]).enter()
+    .data(data[current_pointer]["population_fast_fact"])
+    .enter()
     .append("g")
     .attr("class", "population")
     .attr("transform", function (d, i) {
@@ -543,25 +607,41 @@ function population_fast_fact(current_pointer, scope) {
     })
     .call(population_chart);
 
-    d3.selectAll(".population").on("mouseover", function () {
-        d3.select(this).select(".population_axis path").style("stroke", d3.hsl(color_main).brighter(0.5));
+    d3.selectAll(".population")
+    .on("mouseover", function () {
+        d3.select(this)
+        .select(".population_axis path")
+        .style("stroke", d3.hsl(color_main).brighter(0.5));
 
     })
     .on("mouseout", function () {
         if (d3.select(this).attr("checked") != "true") {
-            d3.select(this).select(".population_axis path").style("stroke", "#555");
+            d3.select(this)
+            .select(".population_axis path")
+            .style("stroke", "#555");
         } else {
-            d3.select(this).select(".population_axis path").style("stroke", color_main);
+            d3.select(this)
+            .select(".population_axis path")
+            .style("stroke", color_main);
         }
 
     })
     .on("click", function () {
-        d3.selectAll(".population").attr("checked", "false").selectAll(".population_axis path").style("stroke", "#555");
+        d3.selectAll(".population")
+        .attr("checked", "false")
+        .selectAll(".population_axis path")
+        .style("stroke", "#555");
 
         d3.select(this).attr("checked", "true");
-        d3.select(this).select(".population_axis path").style("stroke", color_main);
+        d3.select(this)
+        .select(".population_axis path")
+        .style("stroke", color_main);
         if (scope != "state")
-            map_ranking(scope, "population_fast_fact", d3.select(this).select("svg").attr("id"));
+            map_ranking(
+                scope, "population_fast_fact",
+                d3.select(this)
+                .select("svg")
+                .attr("id"));
     });
 }
 
@@ -586,7 +666,8 @@ function foster_care_trends(current_pointer, scope) {
     .attr("width", width_t + margin_t.left + margin_t.right)
     .attr("height", (height_t + margin_t.top + margin_t.bottom) * 5 + 50)
     .selectAll("g")
-    .data(data[current_pointer]["foster_care_trend"]).enter()
+    .data(data[current_pointer]["foster_care_trend"])
+    .enter()
     .append("g")
     .attr("class", "sparkline")
     .attr("transform", function (d, i) {
@@ -595,25 +676,40 @@ function foster_care_trends(current_pointer, scope) {
     .call(sparkline_chart);
 
     d3.selectAll(".sparkline").on("mouseover", function () {
-        d3.select(this).select(".trend_line").style("stroke", d3.hsl(color_main).brighter(0.5));
+        d3.select(this)
+        .select(".trend_line")
+        .style("stroke", d3.hsl(color_main).brighter(0.5));
 
     })
     .on("mouseout", function () {
         if (d3.select(this).attr("checked") != "true") {
-            d3.select(this).select(".trend_line").style("stroke", "#555");
+            d3.select(this)
+            .select(".trend_line")
+            .style("stroke", "#555");
         } else {
-            d3.select(this).select(".trend_line").style("stroke", color_main);
+            d3.select(this)
+            .select(".trend_line")
+            .style("stroke", color_main);
         }
 
     })
     .on("click", function () {
-        d3.selectAll(".sparkline").attr("checked", "false").selectAll(".trend_line").style("stroke", "#555");
+        d3.selectAll(".sparkline")
+        .attr("checked", "false")
+        .selectAll(".trend_line")
+        .style("stroke", "#555");
 
         d3.select(this).attr("checked", "true");
-        d3.select(this).select(".trend_line").style("stroke", color_main);
+        d3.select(this)
+        .select(".trend_line")
+        .style("stroke", color_main);
 
         if (scope != "state")
-            map_ranking(scope, "foster_care_trend", d3.select(this).select(".trend").attr("id"));
+            map_ranking(
+                scope, "foster_care_trend",
+                d3.select(this)
+                .select(".trend")
+                .attr("id"));
     });
 
 }
@@ -671,23 +767,33 @@ function tool_tip() {
         })
 
         d3.select("#svg_trend").call(tip_f_0);
-    d3.select("#trend_0").select(".sparkline_title").on('mouseover', tip_f_0.show)
+    d3.select("#trend_0")
+    .select(".sparkline_title")
+    .on('mouseover', tip_f_0.show)
     .on('mouseout', tip_f_0.hide);
 
     d3.select("#svg_trend").call(tip_f_1);
-    d3.select("#trend_1").select(".sparkline_title").on('mouseover', tip_f_1.show)
+    d3.select("#trend_1")
+    .select(".sparkline_title")
+    .on('mouseover', tip_f_1.show)
     .on('mouseout', tip_f_1.hide);
 
     d3.select("#svg_trend").call(tip_f_2);
-    d3.select("#trend_2").select(".sparkline_title").on('mouseover', tip_f_2.show)
+    d3.select("#trend_2")
+    .select(".sparkline_title")
+    .on('mouseover', tip_f_2.show)
     .on('mouseout', tip_f_2.hide);
 
     d3.select("#svg_trend").call(tip_f_3);
-    d3.select("#trend_3").select(".sparkline_title").on('mouseover', tip_f_3.show)
+    d3.select("#trend_3")
+    .select(".sparkline_title")
+    .on('mouseover', tip_f_3.show)
     .on('mouseout', tip_f_3.hide);
 
     d3.select("#svg_trend").call(tip_f_4);
-    d3.select("#trend_4").select(".sparkline_title").on('mouseover', tip_f_4.show)
+    d3.select("#trend_4")
+    .select(".sparkline_title")
+    .on('mouseover', tip_f_4.show)
     .on('mouseout', tip_f_4.hide);
 
     var tip_p_0 = d3.tip()
@@ -726,23 +832,33 @@ function tool_tip() {
         })
 
         d3.select("#svg_population").call(tip_p_0);
-    d3.select("#population_0").select(".text_title").on('mouseover', tip_p_0.show)
+    d3.select("#population_0")
+    .select(".text_title")
+    .on('mouseover', tip_p_0.show)
     .on('mouseout', tip_p_0.hide);
 
     d3.select("#svg_population").call(tip_p_1);
-    d3.select("#population_1").select(".text_title").on('mouseover', tip_p_1.show)
+    d3.select("#population_1")
+    .select(".text_title")
+    .on('mouseover', tip_p_1.show)
     .on('mouseout', tip_p_1.hide);
 
     d3.select("#svg_population").call(tip_p_2);
-    d3.select("#population_2").select(".text_title").on('mouseover', tip_p_2.show)
+    d3.select("#population_2")
+    .select(".text_title")
+    .on('mouseover', tip_p_2.show)
     .on('mouseout', tip_p_2.hide);
 
     d3.select("#svg_population").call(tip_p_3);
-    d3.select("#population_3").select(".text_title").on('mouseover', tip_p_3.show)
+    d3.select("#population_3")
+    .select(".text_title")
+    .on('mouseover', tip_p_3.show)
     .on('mouseout', tip_p_3.hide);
 
     d3.select("#svg_population").call(tip_p_4);
-    d3.select("#population_4").select(".text_title").on('mouseover', tip_p_4.show)
+    d3.select("#population_4")
+    .select(".text_title")
+    .on('mouseover', tip_p_4.show)
     .on('mouseout', tip_p_4.hide);
 
 }
@@ -752,9 +868,13 @@ function map_ranking(scope, category, id) { //categrory ["foster_care_trend" or 
 
     counties.map(function (d) {
         if (scope == "county") {
-            d3.selectAll("#" + d.id).selectAll("path").style("fill", d.color);
+            d3.selectAll("#" + d.id)
+            .selectAll("path")
+            .style("fill", d.color);
         } else {
-            d3.selectAll("." + d.id.toLowerCase()).selectAll("path").style("fill", d.color);
+            d3.selectAll("." + d.id.toLowerCase())
+            .selectAll("path")
+            .style("fill", d.color);
         }
     });
 }
@@ -826,7 +946,9 @@ function get_ranking(scope, category, id) { //categrory ["foster_care_trend" or 
     d3.select("#sub_description_measure").text(element.title);
 
     for (var i = 1; i <= 5; i++) {
-        d3.select("#mea_level_" + i).select("text").text(valueFormat(range[i - 1]) + " - " + valueFormat(range[i]));
+        d3.select("#mea_level_" + i)
+        .select("text")
+        .text(valueFormat(range[i - 1]) + " - " + valueFormat(range[i]));
     }
 
     return counties;
