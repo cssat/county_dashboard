@@ -58,9 +58,9 @@ and must be fit for integration with current tool collection and branding.
 ## Milestones
 *Major steps in the process with soft/hard deadlines.*
 
-April 1: Stakeholder agreement on project scope (objective, goal, etc.).
-April 15: Mock-ups and tech strategy complete.
-April 30: Prototype implemented. Stakeholder review.
+* April 1: Stakeholder agreement on project scope (objective, goal, etc.).
+* April 15: Mock-ups and tech strategy complete.
+* April 30: Prototype implemented. Stakeholder review.
 
 ## Limits and Exclusions
 *Often times a project is part of a broader collection of projects or implies
