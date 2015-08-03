@@ -51,16 +51,6 @@ into the new Data Portal.
     * 'fastfact_sparkline_tooltip_functions.js'
     
         Supports creating and populating the fastfact and sparkline tooltips.
-	
-	* `wa_geo_map.js` **(function/data separation needed)**
-	
-		Supports creation of county map. Also currently provides the map GeoJSON 
-		data.
-	
-	* `wa_geo_map_region.js` **(function/data separation needed)**
-	
-		Supports creation of region map. Also currently provides the map GeoJSON 
-		data.
 
 ## Data
 * JavaScript
