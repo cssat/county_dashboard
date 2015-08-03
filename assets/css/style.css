@@ -86,7 +86,7 @@
      margin-left: 5px;       
     }
     
-    #svg_population{
+    #svg_fastfact{
          overflow:hidden;         
     }
     
@@ -119,7 +119,7 @@
     #t_context{
     }
     
-    #t_population{
+    #t_fastfact{
     }
     
     #t_trend{
@@ -207,8 +207,8 @@
         font-weight: bold;
     }
     
-    .population_axis path,
-    .population_axis line {
+    .fastfact_axis path,
+    .fastfact_axis line {
         fill: none;
         stroke: #666;
         stroke-width:2;
@@ -236,11 +236,11 @@
         fill: #555;       
     }
     
-    .circle_population {
+    .circle_fastfact {
        fill:#A2B69A;
     }
     
-    .population_rect {
+    .fastfact_rect {
         cursor: pointer;
     }
     

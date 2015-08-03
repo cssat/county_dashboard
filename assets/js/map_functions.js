@@ -1,4 +1,9 @@
-// county map
+/* 
+These are the workhorse functions for creating and updating the map objects and
+map scale.
+*/
+
+// creates the county map svg from the base map svg
 function wa_geo_map(g) {
 
     var svg = g.append("svg")
@@ -10,7 +15,7 @@ function wa_geo_map(g) {
         .offset([-10, 0])
         .html(function (d) {
             return "<span>" + d.county + "</span>";
-        })
+        });
 
         svg.call(tip);
 
@@ -41,7 +46,7 @@ function wa_geo_map(g) {
         .style("opacity", 1);
         div.transition()
         .duration(300)
-        .style("opacity", 1)
+        .style("opacity", 1);
         div.text(d.county)
         .style("left", (d3.event.pageX - 30) + "px")
         .style("top", (d3.event.pageY - 30) + "px");
@@ -74,7 +79,7 @@ function wa_geo_map(g) {
 
 }
 
-// region map
+// creates the region map svg from the base map svg
 function wa_geo_map_region(g) {
 
     var svg = g.append("svg")
@@ -86,7 +91,7 @@ function wa_geo_map_region(g) {
         .offset([-10, 0])
         .html(function (d) {
             return "<span>" + d.region_name + "</span>";
-        })
+        });
 
         svg.call(tip);
 
@@ -112,7 +117,7 @@ function wa_geo_map_region(g) {
         .style("opacity", 1);
         div.transition()
         .duration(300)
-        .style("opacity", 1)
+        .style("opacity", 1);
         div.text(d.region_name)
         .style("left", (d3.event.pageX - 30) + "px")
         .style("top", (d3.event.pageY - 30) + "px");
@@ -144,3 +149,98 @@ function wa_geo_map_region(g) {
     .style("stroke", "black")
     .style("fill", "none");
 }
+
+// gets scale information appropriate for selected fact/sparkline and current
+// scope; also adjusts the map scale and map scale elements to match
+function get_ranking(scope, category, id) { //categrory ["foster_care_trend" or "population_fast_fact"]; id is the "id" inside that category
+
+    if (scope == "county") {
+        var data = data_county;
+        var element = titles_county[category][id];
+    } else {
+        var data = data_region;
+        var element = titles_region[category][id];
+    }
+
+    var valueFormat = d3.format(".2" + element.valueFormat);
+
+    if (category == "foster_care_trend") {
+        var index = id.substr(6, 1);
+        var max = element.maxCurrent,
+        min = element.minCurrent;
+    } else {
+        var index = id.substr(11, 1);
+        var max = element.max,
+        min = element.min;
+    }
+
+    var range = d3.range(min, max, ((max - min) / 5));
+    range.push(max);
+
+    var counties = data.map(function (d) {
+            if (category == "foster_care_trend") {
+                var element = (d[category][index]["statistic"]);
+                if (element.length !== 0)
+                    return {
+                        "id" : d.id,
+                        "value" : element[element.length - 1].value
+                    };
+                else
+                    return {
+                        "id" : d.id,
+                        "value" : NaN
+                    };
+            } else {
+                var element = (d[category][index]["statistic"]);
+                return {
+                    "id" : d.id,
+                    "value" : element
+                };
+            }
+        });
+
+    counties.map(function (d) {
+        if (d.value < range[1])
+            d.color = color_l_1;
+        else if (d.value < range[2])
+            d.color = color_l_2;
+        else if (d.value < range[3])
+            d.color = color_l_3;
+        else if (d.value < range[4])
+            d.color = color_l_4;
+        else if (isNaN(d.value))
+            d.color = color_l_NaN; // empty value;
+        else
+            d.color = color_l_5;
+    });
+
+    d3.select("#sub_description").style("display", "block");
+
+    d3.select("#sub_description_measure").text(element.title);
+
+    for (var i = 1; i <= 5; i++) {
+        d3.select("#mea_level_" + i)
+        .select("text")
+        .text(valueFormat(range[i - 1]) + " - " + valueFormat(range[i]));
+    }
+
+    return counties;
+}
+
+// adjusts map coloring when scaling is appropriate
+function map_ranking(scope, category, id) { //categrory ["foster_care_trend" or "population_fast_fact"]; id is the "id" inside that category
+    var counties = get_ranking(scope, category, id);
+
+    counties.map(function (d) {
+        if (scope == "county") {
+            d3.selectAll("#" + d.id)
+            .selectAll("path")
+            .style("fill", d.color);
+        } else {
+            d3.selectAll("." + d.id.toLowerCase())
+            .selectAll("path")
+            .style("fill", d.color);
+        }
+    });
+}
+
