@@ -36,19 +36,19 @@ into the new Data Portal.
 	
 		Supports creation of the fast facts at the bottom of the visualization.
     
-    * 'sparkline_functions.js'
+    * `sparkline_functions.js`
     
         Supports creation of the sparklines at the right of the visualization.
         
-    * 'map_functions.js'
+    * `map_functions.js`
     
         Supports creation and updating of the map objects.
         
-    * 'scope_funtions.js'
+    * `scope_funtions.js`
     
         Supports switching between views and the data those views need.
         
-    * 'fastfact_sparkline_tooltip_functions.js'
+    * `fastfact_sparkline_tooltip_functions.js`
     
         Supports creating and populating the fastfact and sparkline tooltips.
 
