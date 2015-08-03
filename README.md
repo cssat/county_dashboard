@@ -1,12 +1,13 @@
 # County Dashboard
 ## Project Purpose
 The county dashboard allows the user to toggle between region, county, and state 
-views of data on a number of key metrics.
+views of data on a number of key metrics. It also allows you to update the
+map to show geographic variation for each metric.
 
 ## Implementation Overview
 The county dashboard is implemented as a JavaScript application that reads
-JavaScript data files containing JSON-style data ***(to be replaced by JSON
-files**. It is currently standalone and may need adjustments for integration 
+JavaScript data files containing JSON-style data **(to be replaced by JSON
+files)**. It is currently standalone and may need adjustments for integration 
 into the new Data Portal.
 
 ## Assets
@@ -25,13 +26,31 @@ into the new Data Portal.
 		A D3 file that supports adding tooltips to d3.js visualizations. 
 		Obtained from [the Caged GitHub repo](https://github.com/caged/d3-tip).
 	
-	* `population.js` **(merge target)**
+	* `app.js`
 	
-		Supports creation of population brackets at bottom of the dashboard.
+		The file the declares global variables and initializes the application
+        containers and their behavior. Has dependencies on all the following
+        files and so needs to be loaded last.
 	
-	* `sparkline.js` **(merge target)**
+	* `fastfact_functions.js`
 	
-		Supports creation of sparkline charts on the side of the dashboard.
+		Supports creation of the fast facts at the bottom of the visualization.
+    
+    * 'sparkline_functions.js'
+    
+        Supports creation of the sparklines at the right of the visualization.
+        
+    * 'map_functions.js'
+    
+        Supports creation and updating of the map objects.
+        
+    * 'scope_funtions.js'
+    
+        Supports switching between views and the data those views need.
+        
+    * 'fastfact_sparkline_tooltip_functions.js'
+    
+        Supports creating and populating the fastfact and sparkline tooltips.
 	
 	* `wa_geo_map.js` **(function/data separation needed)**
 	
@@ -49,10 +68,22 @@ into the new Data Portal.
 	
 		Several arrays of data for counties stored as variables, as well as the 
 		sparkline domain (needs to be updated when the data is updated).
+        
+        This provides the content for fast facts, sparklines, and the 
+        scaled map.
 	
 	* `data_region.js` **(conversion needed)**
 	
-		Same as above but for regions and minus the sparkline domain.
+		Same as above but for regions.
+        
+    * `wa_county_geodata.js` **(conversion needed)**
+    
+        The data used to define the spaces and lines for each county on the
+        county map.
+    
+    * `wa_region_geodata.js` **(conversion needed)**
+    
+        Same as above but for regions.
 	
 	* `dict.js` **(conversion needed)**
 	
