@@ -94,7 +94,7 @@
          overflow:hidden;  
     }
     
-    #radios{
+    #context-buttons{
        float:right; 
        margin-right:40px; 
     }
@@ -126,13 +126,13 @@
         padding-left:7px;
     }
     
-    #radios{
-    float: right;
+    #context-buttons{
+    text-align: right;
     width: 280px;
   }
     
-    #radios div {
-        float: right;
+    #context-buttons div {
+        display: inline-block;
         margin-left: 5px;
         border: 2px solid; 
         width:80px;
