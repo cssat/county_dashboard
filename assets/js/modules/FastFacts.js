@@ -14,8 +14,8 @@ var FastFacts = (function() {
 		for(var i = 0; i < files.length; i++) {
 			var fileName = defaultContext + files[i];
 			
-			Events.subscribe(fileName, function(obj) {
-				console.log(obj);
+			Events.subscribe(defaultContext + files[i], function(obj) {
+				console.log('It happened: ' + defaultContext + files[i]);
 			});
 		}
 	}

@@ -255,6 +255,7 @@ function get_fastfacts(current_pointer, scope) {
 }
 
 // switching the map to focus on a particular sparkline
+// This is where the sparkline chart is actually initialized
 function foster_care_trends(current_pointer, scope) {
 
     var sparkline_chart = d3.sparkline()

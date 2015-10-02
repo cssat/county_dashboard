@@ -2,13 +2,11 @@
  * EVENTS
  *
  * Simple pub/sub class for notifying other modules of
- * data load events.
+ * data load events from http://davidwalsh.name/pubsub-javascript.
+ *
+ * This module provides communication about events without
+ * creating dependencies between other modules.
  */
-
-// From http://davidwalsh.name/pubsub-javascript
-//
-// This module provides communication about events without
-// creating dependencies between other modules.
 
 var Events = (function(){
   var topics = {};

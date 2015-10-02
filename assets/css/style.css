@@ -1,3 +1,7 @@
+body {
+  font-family: 'sans-serif';
+}
+
 #main-content{
   width:1087px;
 }
@@ -5,7 +9,6 @@
 #main-content #block-title {
 /*  background:url('../images/blank-page-block-title-bg.png') left top no-repeat;*/
   color:#fff;
-  font-family:Arvo,serif;
   font-weight:normal;
   text-transform:uppercase;
   font-size: 20px;
@@ -368,98 +371,20 @@
   font-size: 20px;
   font-family: "Arvo", serif;
 }
-    
- /* end: County Dashboard */
 
- /* Begin spaghetti plots */
-
- /*****************************
-GENERAL STYLES
-*****************************/
-
-a:focus, a:hover {
-  color: #5b8067;
-}
-
-#main-content .block .spaghetti h2 {
-  font-family: "Arvo", serif;
-  margin-bottom: .5em;
-  color: #5B8067;
-  font-size: 2.5em;
-}
-
-/******************************
-Styles for lines visualization
-******************************/
-
-.spaghetti .description {
-  margin-left: 20px;
-  font-size: 13px;
-  line-height: 1.5em;
-}
-.spaghetti #filters, .spaghetti #care-filters {
-    margin-bottom: 20px;
-}
-
-#vis, #care-vis {
-    min-height: 550px;
-}
-
-.spaghetti path {
-    stroke: rgba(0, 0, 0, .1);
-    stroke-width: 2.0;
+.axis line {
     fill: none;
-   /* pointer-events: all; */
-   /* cursor: pointer;*/
-}
-.spaghetti path.current, .spaghetti path.highlight.current {
-    stroke: #000;
-    stroke-width: 2.0;
-}
-
-.spaghetti path[state="Washington"] {
-    stroke: #000;
-}
-
-.FW.highlight {
-  stroke: #c0392b;
-}
-.SW.highlight {
-    stroke: #d35400;
-}
-.ME.highlight {
-    stroke: #f39c12;
-}
-.SE.highlight {
-    stroke: #27ae60;
-}
-.MT.highlight {
-    stroke: #17a88c;
-}
-.GL.highlight {
-    stroke: #2980b9;
-}
-.GP.highlight {
-    stroke: #8e44ad;
-}
-.NE.highlight {
-  stroke: #34495e;
-}
-.highlight {
-    stroke-width: 2px;
-}
-line {
     stroke: black;
+    shape-rendering: crispEdges;
 }
-text {
-    font-family: Helvetica, Arial, sans-serif;
+
+.axis path {
+  fill: none;
+}
+
+.axis text {
+    font-family: sans-serif;
     font-size: 11px;
 }
-.axis {
-    stroke-width: 0.8;
-    stroke: #000;
-}
-.xTicks, .yTicks {
-    stroke-width: 0.6;
-    stroke: #000;
-}
+    
+ /* end: County Dashboard */

@@ -23,9 +23,9 @@ var Dashboard = (function() {
 	// updating. Eventually the date range should be determined
 	// automatically.
 	var defaultContext = 'state';
-	var path = '/data/new-data/';
+	var path = 'data/new-data/';
 	var files = ['_context', '_data']; // files to be loaded per context
-	var dateRange = [ "2000-01-01", "2015-01-01"];
+	var dateRange = [ 2000, 2015];
 	var contexts = ['state', 'county', 'region'];
 	var colors = {
 		main: "#3B6E8F",
@@ -33,13 +33,14 @@ var Dashboard = (function() {
 		accent: "green"
 	};
 
-	// Initialize the application
+	// Initialize the application modules with whatever
+	// settings they need to run
 	function init() {
 		DataService.init(defaultContext, path, files);
 		ContextSwitcher.init(contexts, colors);
 		FastFacts.init(defaultContext, files);
 		Map.init(defaultContext, colors);
-		Sparklines.init(defaultContext, files);
+		Sparklines.init(defaultContext, files, dateRange, colors);
 	}
 
 	return {
